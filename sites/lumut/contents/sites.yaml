@@ -1,0 +1,11 @@
+title: Lumut Simple Page
+site_description: Lumut Simple Flat PHP Framework
+description: Lumut Simple Flat PHP Framework
+
+opengraph:
+  site_name:
+  title:
+  description:
+
+menus:
+  "Home": "/"

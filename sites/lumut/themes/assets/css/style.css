@@ -1,0 +1,64 @@
+header, hgroup, nav, section, article, aside, footer, main { display: block; }
+html, body, form, fieldset, legend, h1, h2, h3, h4, h5, h6, dd { margin: 0; padding: 0; }
+p, pre, blockquote, ul, ol, dl, table, figure { margin: 0 0 1.5em; padding: 0; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+table { border-collapse: collapse; border-spacing: 0; }
+fieldset { border: 0; }
+legend { color: inherit; } /* For IE */
+form ul, form ol { list-style: none; }
+a img { border: 0; }
+input, select, textarea { font-family: inherit; font-size: 100%; }
+.dtstart, .dtend, .published, .updated { border: 0; }
+img, video, object, embed { max-width: 100%; height: auto; }
+
+html,body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+
+#container {
+  margin: 0 auto;
+  width: 940px;
+}
+
+#header {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #666;
+}
+
+#header nav ul {
+  list-style: none;
+  margin: 0;
+}
+
+#header nav ul:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+#header nav li {
+  float: left;
+}
+
+#header nav li a {
+  text-decoration: none;
+  color: #333;
+}
+
+#body {
+  padding: 20px 0;
+}

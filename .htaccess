@@ -1,0 +1,6 @@
+Options -Indexes
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} libraries/ [NC,OR]
+RewriteCond %{REQUEST_URI} sites/(.*)/config [NC]
+RewriteRule . - [R=404,L,NC]
