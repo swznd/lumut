@@ -33,8 +33,6 @@ class Router
   }
   
   public static function getPath() {
-    $path = '/';
-    
     if ( ! empty($_SERVER['PATH_INFO'])) {
       $path = $_SERVER['PATH_INFO'];
     }
@@ -58,7 +56,7 @@ class Router
       }
     }
     
-    return $path;
+    return empty($path) ? '/' : $path;
   }
   
 }
