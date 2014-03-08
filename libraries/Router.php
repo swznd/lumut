@@ -6,7 +6,7 @@ class Router
   
   public function __construct($routes) {
     $this->routes = $routes;
-    $this->path = static::getPath();
+    $this->path = self::getPath();
   }
   
   
@@ -44,19 +44,30 @@ class Router
         $uri = $_SERVER['REQUEST_URI'];
        
         if (strpos($uri, '?') > 0) {
-          $path = strstr($_SERVER['REQUEST_URI'], '?', true);
+          if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
+            $path = strstr($_SERVER['REQUEST_URI'], '?', true);
+          }
+          else {
+            $path = self::str_before($_SERVER['REQUEST_URI'], '?');
+          }
         }
-
-        if (strpos($uri, $_SERVER['SCRIPT_NAME']) === 0) {
-          $path = substr($uri, strlen($_SERVER['SCRIPT_NAME']));
-        }
-        elseif (strpos($uri, dirname($_SERVER['SCRIPT_NAME'])) === 0) {
-          $path = substr($uri, strlen(dirname($_SERVER['SCRIPT_NAME'])));
+        else {
+          if (strpos($uri, $_SERVER['SCRIPT_NAME']) === 0) {
+            $path = substr($uri, strlen($_SERVER['SCRIPT_NAME']));
+          }
+          elseif (strpos($uri, dirname($_SERVER['SCRIPT_NAME'])) === 0) {
+            $path = substr($uri, strlen(dirname($_SERVER['SCRIPT_NAME'])));
+          }
         }
       }
     }
-    
+
     return empty($path) ? '/' : $path;
+  }
+
+  public static function str_before($subject, $needle) {
+    $p = strpos($subject, $needle);
+    return substr($subject, 0, $p);
   }
   
 }
